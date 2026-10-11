@@ -1,0 +1,158 @@
+/* Palette reprise de LutraShared/Theme/Theme.swift, pour que la page et l'app
+   se ressemblent. Clair par défaut, sombre selon le réglage du visiteur. */
+
+:root {
+  --bg: #FBF4EA;
+  --card: #FFFFFF;
+  --ink: #2A1C10;
+  --ink-soft: #8A7462;
+  --ink-faint: #BCA995;
+  --blue: #9C6230;
+  --blue-soft: #F3E6D6;
+  --separator: #F1E6D6;
+  --shadow: rgba(42, 28, 16, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14100B;
+    --card: #201911;
+    --ink: #F7F1E8;
+    --ink-soft: #AC9C8B;
+    --ink-faint: #7C6D5F;
+    --blue: #D69E65;
+    --blue-soft: #2A2016;
+    --separator: #2F2619;
+    --shadow: rgba(0, 0, 0, 0.35);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0 20px 72px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont,
+               "Segoe UI", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
+}
+
+.wrap { max-width: 720px; margin: 0 auto; }
+
+header {
+  text-align: center;
+  padding: 56px 0 8px;
+}
+
+header .icone { width: 72px; height: 72px; border-radius: 16px; display: block; margin: 0 auto; }
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 18px 0 6px;
+}
+
+header p {
+  color: var(--ink-soft);
+  margin: 0;
+  font-size: 1.0625rem;
+}
+
+.updated {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+/* Sélecteur de langue, en haut à droite. Placé avant tout le reste : un
+   relecteur anglophone ne doit pas avoir à deviner qu'une version existe. */
+.langswitch {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.langswitch a {
+  display: inline-block;
+  padding: 6px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--separator);
+  background: var(--card);
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.langswitch a:hover { color: var(--blue); border-color: var(--blue); }
+
+@media (max-width: 520px) {
+  .langswitch { top: 12px; right: 14px; }
+}
+
+h2 {
+  font-size: 1.3125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 44px 0 12px;
+}
+
+h2:first-of-type { margin-top: 36px; }
+
+p { margin: 0 0 16px; }
+
+ul { margin: 0 0 16px; padding-left: 22px; }
+li { margin-bottom: 9px; }
+
+strong { font-weight: 700; }
+
+a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+/* L'encadré d'ouverture : la réponse courte, avant les détails. */
+.lede {
+  background: var(--card);
+  border: 1px solid var(--separator);
+  border-radius: 18px;
+  padding: 22px 24px;
+  margin: 32px 0 8px;
+  box-shadow: 0 6px 22px var(--shadow);
+}
+
+.lede p:last-child { margin-bottom: 0; }
+
+.contact {
+  background: var(--card);
+  border: 1px solid var(--separator);
+  border-radius: 18px;
+  padding: 22px 24px;
+  margin-top: 20px;
+  box-shadow: 0 6px 22px var(--shadow);
+}
+
+footer {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--separator);
+  color: var(--ink-faint);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+footer a { color: var(--ink-soft); }
+
+@media (max-width: 520px) {
+  body { font-size: 16px; padding-bottom: 56px; }
+  header { padding-top: 40px; }
+  header h1 { font-size: 1.625rem; }
+  .lede, .contact { padding: 20px; border-radius: 16px; }
+}
